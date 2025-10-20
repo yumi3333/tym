@@ -1,0 +1,12 @@
+{
+  "name": "tym",
+  "version": "1.0.0",
+  "description": "数据可视化交互网站",
+  "main": "index.html",
+  "scripts": {
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.43.0"
+  }
+}
