@@ -1,0 +1,366 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "nav nav nav"
+        "main main aside"
+        "footer footer footer";
+    grid-template-columns: 1fr 1fr 300px;
+    grid-template-rows: auto auto 1fr auto;
+    min-height: 100vh;
+}
+
+/* 头部样式 */
+header {
+    grid-area: header;
+    background-color: #1e88e5;
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* 导航样式 */
+nav {
+    grid-area: nav;
+    background-color: #0d47a1;
+    padding: 0.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-right: 0.5rem;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 0.7rem 1.2rem;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: bold;
+}
+
+/* 主内容区域 */
+main {
+    grid-area: main;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 图表容器 */
+#chart-container {
+    margin-bottom: 2rem;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.chart-controls button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.chart-controls button:hover {
+    background-color: #1565c0;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 400px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 1rem;
+}
+
+.chart-description {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #1e88e5;
+}
+
+/* 数据面板 */
+#data-panel {
+    background-color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 4px;
+}
+
+.data-table-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 1rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+#data-table th,
+#data-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#data-table th {
+    background-color: #f5f5f5;
+    font-weight: bold;
+}
+
+#data-table tr:hover {
+    background-color: #f8f9fa;
+}
+
+.data-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.data-controls button {
+    background-color: #1e88e5;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.data-controls button:hover {
+    background-color: #1565c0;
+}
+
+.data-controls button:disabled {
+    background-color: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* 侧边栏 */
+aside {
+    grid-area: aside;
+    padding: 1.5rem;
+    background-color: #f5f5f5;
+    border-left: 1px solid #e0e0e0;
+}
+
+.option-group {
+    margin-bottom: 1.2rem;
+}
+
+.option-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.option-group select,
+.option-group input[type="range"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+}
+
+.option-group.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.option-group.checkbox label {
+    margin-bottom: 0;
+    margin-left: 0.5rem;
+}
+
+/* 页脚 */
+footer {
+    grid-area: footer;
+    background-color: #0d47a1;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 992px) {
+    body {
+        grid-template-areas:
+            "header header"
+            "nav nav"
+            "main main"
+            "aside aside"
+            "footer footer";
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .chart-controls {
+        margin-top: 1rem;
+    }
+
+    .chart-controls button {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+}
+
+/* 编辑模式样式 */
+.edit-mode .editable {
+    background-color: #fff8e1;
+    border: 1px dashed #ffc107;
+    padding: 2px;
+}
+
+/* 动画效果 */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* 工具提示 */
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    z-index: 100;
+    pointer-events: none;
+}
+
+/* 加载动画 */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #1e88e5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* 数据标签样式 */
+.data-label {
+    position: absolute;
+    font-size: 12px;
+    font-weight: bold;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2px 4px;
+    border-radius: 2px;
+    pointer-events: none;
+}
+
+/* 图表切换动画 */
+.chart-transition {
+    transition: all 0.5s ease;
+}
+
+/* 高亮效果 */
+.highlight {
+    animation: highlight 1s ease;
+}
+
+@keyframes highlight {
+    0% { background-color: rgba(255, 235, 59, 0.5); }
+    100% { background-color: transparent; }
+}
